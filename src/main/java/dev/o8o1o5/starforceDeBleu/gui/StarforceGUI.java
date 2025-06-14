@@ -1,9 +1,12 @@
 package dev.o8o1o5.starforceDeBleu.gui;
 
+import dev.o8o1o5.starforceDeBleu.StarforceDeBleu;
 import dev.o8o1o5.starforceDeBleu.data.StarforceLevel;
+import dev.o8o1o5.starforceDeBleu.manager.StarforceManager;
 import dev.o8o1o5.starforceDeBleu.util.ItemBuilder;
 import dev.o8o1o5.starforceDeBleu.util.ItemLoreDisplayUtil;
 import dev.o8o1o5.starforceDeBleu.util.StarforceDataUtil;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -29,6 +32,8 @@ public class StarforceGUI implements InventoryHolder {
 
     private final ItemStack enabledEnhanceButton;
     private final ItemStack disabledEnhanceButton;
+
+    private final Economy economy = StarforceDeBleu.getEconomy();
 
     public StarforceGUI() {
         this.inventory = Bukkit.createInventory(this, 27, "스타포스 강화");
@@ -137,7 +142,7 @@ public class StarforceGUI implements InventoryHolder {
         long cost = calculateCost(currentStars);
         ItemStack costInfo = new ItemBuilder(Material.GOLD_INGOT)
                 .setName("강화 비용")
-                .setLore(Arrays.asList("필요 현석: " + cost))
+                .setLore(Arrays.asList(economy.format(StarforceManager.calculateCost(currentStars))))
                 .build();
         inventory.setItem(COST_INFO_SLOT, costInfo);
     }

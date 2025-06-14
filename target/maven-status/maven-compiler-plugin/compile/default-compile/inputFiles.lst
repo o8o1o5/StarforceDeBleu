@@ -1,16 +1,16 @@
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\command\StarforceCommand.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\data\StarforceLevel.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\gui\StarforceGUI.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\AnvilInteractListener.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\StarforceGUIListener.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\starforceListener\ArmorListener.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\starforceListener\SwordListener.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\manager\StarforceManager.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\StarforceDeBleu.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\calculator\ArmorCalculator.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\calculator\SwordCalculator.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\ItemBuilder.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\ItemLoreDisplayUtil.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\StarforceAttributeLoreUtil.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\StarforceDataUtil.java
-C:\miku\Starforce de Bleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\StarforceStarLoreUtil.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\command\StarforceCommand.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\data\StarforceLevel.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\gui\StarforceGUI.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\AnvilInteractListener.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\StarforceGUIListener.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\starforceListener\ArmorListener.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\listener\starforceListener\SwordListener.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\manager\StarforceManager.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\StarforceDeBleu.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\calculator\ArmorCalculator.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\calculator\SwordCalculator.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\ItemBuilder.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\ItemLoreDisplayUtil.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\StarforceAttributeLoreUtil.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\StarforceDataUtil.java
+C:\miku\minecraft\plugin\StarforceDeBleu\src\main\java\dev\o8o1o5\starforceDeBleu\util\StarforceStarLoreUtil.java

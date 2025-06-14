@@ -5,17 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43bec973-8197-4534-9646-38ba0b7af8fc" name="Changes" comment="ddd">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/calculator/ArmorCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/data/StarforceLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/data/StarforceLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/listener/starforceListener/ArmorListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/listener/starforceListener/ArmorListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/command/StarforceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/command/StarforceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/listener/StarforceGUIListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/listener/StarforceGUIListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/manager/StarforceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/manager/StarforceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/ItemLoreDisplayUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/ItemLoreDisplayUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/StarforceAttributeLoreUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/StarforceAttributeLoreUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/calculator/SwordCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/calculator/SwordCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/StarforceDataUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/util/StarforceDataUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/listener/starforceListener/ArmorListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/listener/starforceListener/ArmorListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/command/StarforceCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/command/StarforceCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/listener/StarforceGUIListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/listener/StarforceGUIListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/manager/StarforceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/manager/StarforceManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/util/StarforceDataUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dev/o8o1o5/starforceDeBleu/util/StarforceDataUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/original-StarforceDeBleu-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-StarforceDeBleu-1.0-SNAPSHOT.jar" afterDir="false" />
@@ -34,7 +34,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -42,12 +41,12 @@
     &quot;assignee&quot;: &quot;o8o1o5&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/o8o1o5/Starforce-de-Bleu&quot;,
-    &quot;accountId&quot;: &quot;3faf6d24-063f-493f-a41f-2fc8d937a05c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/o8o1o5/StarforceDeBleu.git",
+    "accountId": "91aee1ae-1e73-434f-aa74-6f82f15f4ca2"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -56,22 +55,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.StarforceDeBleu [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.StarforceDeBleu [package].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Starforce_de_Bleu [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Starforce_de_Bleu [package].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.StarforceDeBleu [clean].executor": "Run",
+    "Maven.StarforceDeBleu [package].executor": "Run",
+    "Maven.Starforce_de_Bleu [clean].executor": "Run",
+    "Maven.Starforce_de_Bleu [package].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/miku/minecraft/plugin/StarforceDeBleu",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -2,6 +2,7 @@ name: StarforceDeBleu
 version: '1.0-SNAPSHOT'
 main: dev.o8o1o5.starforceDeBleu.StarforceDeBleu
 api-version: '1.21'
+softdepend: [Vault]
 commands:
   starforce:
     description: 스타포스 강화에 관련된 기능을 제공합니다.

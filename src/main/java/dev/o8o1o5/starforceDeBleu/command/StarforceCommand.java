@@ -49,6 +49,7 @@ public class StarforceCommand implements CommandExecutor, TabCompleter {
             player.sendMessage(ChatColor.YELLOW + "/starforce isprocessed - 아이템의 처리 플래그 상태를 확인합니다.");
             player.sendMessage(ChatColor.YELLOW + "/starforce setstarforcable <true|false> - 아이템의 강화 가능 플래그를 설정합니다."); //
             player.sendMessage(ChatColor.YELLOW + "/starforce isstarforcable - 아이템의 강화 가능 플래그 상태를 확인합니다.");
+            // player.sendMessage(ChatColor.YELLOW + "/starforce enhance - 아이템의 강화를 시도합니다.");
             player.sendMessage(ChatColor.YELLOW + "================================");
             return true;
         }

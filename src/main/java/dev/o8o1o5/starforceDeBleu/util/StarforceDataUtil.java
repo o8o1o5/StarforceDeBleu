@@ -1,6 +1,7 @@
 package dev.o8o1o5.starforceDeBleu.util;
 
 import com.google.common.collect.Multimap;
+import dev.o8o1o5.starforceDeBleu.manager.StarforceManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -23,26 +24,6 @@ public class StarforceDataUtil {
     private static NamespacedKey STARFORCE_STARFORCABLE_KEY;
 
     public static int MAX_STARFORCE_LEVEL = 25;
-
-    private static final Set<Material> DEFAULT_STARFORCABLE_MATERIALS = new HashSet<>(Arrays.asList(
-            // 무기
-            Material.WOODEN_SWORD,   Material.STONE_SWORD,   Material.IRON_SWORD,   Material.GOLDEN_SWORD,   Material.DIAMOND_SWORD,   Material.NETHERITE_SWORD,
-            Material.WOODEN_AXE,     Material.STONE_AXE,     Material.IRON_AXE,     Material.GOLDEN_AXE,     Material.DIAMOND_AXE,     Material.NETHERITE_AXE,
-            Material.WOODEN_PICKAXE, Material.STONE_PICKAXE, Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE, Material.DIAMOND_PICKAXE, Material.NETHERITE_PICKAXE,
-            Material.WOODEN_SHOVEL,  Material.STONE_SHOVEL,  Material.IRON_SHOVEL,  Material.GOLDEN_SHOVEL,  Material.DIAMOND_SHOVEL,  Material.NETHERITE_SHOVEL,
-            Material.WOODEN_HOE,     Material.STONE_HOE,     Material.IRON_HOE,     Material.GOLDEN_HOE,     Material.DIAMOND_HOE,     Material.NETHERITE_HOE,
-            Material.BOW, Material.CROSSBOW, Material.TRIDENT,
-            // Material.SHEARS, Material.FLINT_AND_STEEL, Material.FISHING_ROD,
-            // 방어구
-            Material.LEATHER_HELMET,   Material.LEATHER_CHESTPLATE,   Material.LEATHER_LEGGINGS,   Material.LEATHER_BOOTS,
-            Material.CHAINMAIL_HELMET, Material.CHAINMAIL_CHESTPLATE, Material.CHAINMAIL_LEGGINGS, Material.CHAINMAIL_BOOTS,
-            Material.IRON_HELMET,      Material.IRON_CHESTPLATE,      Material.IRON_LEGGINGS,      Material.IRON_BOOTS,
-            Material.GOLDEN_HELMET,    Material.GOLDEN_CHESTPLATE,    Material.GOLDEN_LEGGINGS,    Material.GOLDEN_BOOTS,
-            Material.DIAMOND_HELMET,   Material.DIAMOND_CHESTPLATE,   Material.DIAMOND_LEGGINGS,   Material.DIAMOND_BOOTS,
-            Material.NETHERITE_HELMET, Material.NETHERITE_CHESTPLATE, Material.NETHERITE_LEGGINGS, Material.NETHERITE_BOOTS,
-            Material.TURTLE_HELMET, Material.ELYTRA, Material.SHIELD
-            // 필요에 따라 더 많은 Material을 추가할 수 있습니다.
-    ));
 
     public static void initialize(JavaPlugin p) {
         plugin = p;
@@ -149,7 +130,7 @@ public class StarforceDataUtil {
             }
         }
 
-        if (DEFAULT_STARFORCABLE_MATERIALS.contains(item.getType())) {
+        if (StarforceManager.STARFORCABLE_MATERIAL.contains(item.getType())) {
             return true;
         }
 

@@ -13,7 +13,7 @@ public class AnvilInteractListener implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock() != null &&
-                event.getClickedBlock().getType() == Material.ANVIL) {
+                event.getClickedBlock().getType().name().endsWith("ANVIL")) {
 
             // 플레이어가 웅크리고 있는지 확인합니다.
             if (event.getPlayer().isSneaking()) {

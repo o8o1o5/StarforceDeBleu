@@ -1,9 +1,8 @@
 package dev.o8o1o5.starforceDeBleu.util;
 
 import com.google.common.collect.Multimap;
-import dev.o8o1o5.starforceDeBleu.manager.StarforceManager;
+import dev.o8o1o5.starforceDeBleu.manager.LogicManager;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
@@ -12,11 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
-public class StarforceDataUtil {
+public class DataUtil {
     private static JavaPlugin plugin;
 
     private static NamespacedKey STARFORCE_STARS_KEY;
@@ -55,7 +50,9 @@ public class StarforceDataUtil {
         meta.getPersistentDataContainer().set(STARFORCE_STARS_KEY, PersistentDataType.INTEGER, stars);
         item.setItemMeta(meta);
 
-        ItemLoreDisplayUtil.updateItemLore(item, stars);
+        // 이는 책임 및 관심사 분리를 위해 이관됩니다.
+        // ItemLoreDisplayUtil.updateItemLore(item, stars);
+        // --> StarforceManager 에서 setStars 를 호출한 후에 담당합니다.
     }
 
     public static int getStars(ItemStack item) {
@@ -130,7 +127,7 @@ public class StarforceDataUtil {
             }
         }
 
-        if (StarforceManager.STARFORCABLE_MATERIAL.contains(item.getType())) {
+        if (LogicManager.STARFORCABLE_MATERIAL.contains(item.getType())) {
             return true;
         }
 

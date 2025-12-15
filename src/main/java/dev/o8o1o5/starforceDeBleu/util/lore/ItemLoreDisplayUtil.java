@@ -1,4 +1,4 @@
-package dev.o8o1o5.starforceDeBleu.util;
+package dev.o8o1o5.starforceDeBleu.util.lore;
 
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
@@ -20,8 +20,8 @@ public class ItemLoreDisplayUtil {
 
         removeExistingStarforceLoreInternal(item);
 
-        StarforceStarLoreUtil.addStarLore(item, stars);
-        StarforceAttributeLoreUtil.addAttributeLore(item, stars);
+        StarLoreUtil.addStarLore(item, stars);
+        AttributeLoreUtil.addAttributeLore(item, stars);
     }
 
     private static void removeExistingStarforceLoreInternal(ItemStack item) {
@@ -39,23 +39,23 @@ public class ItemLoreDisplayUtil {
         for (String line : lore) {
             String strippedLine = ChatColor.stripColor(line);
 
-            if (strippedLine.contains(ChatColor.stripColor(StarforceStarLoreUtil.STAR_DISPLAY_LORE_PREFIX))) {
+            if (strippedLine.contains(ChatColor.stripColor(StarLoreUtil.STAR_DISPLAY_LORE_PREFIX))) {
                 removedAnyLine = true;
                 continue; // 이 줄 제거
             }
-            if (strippedLine.contains(ChatColor.stripColor(StarforceAttributeLoreUtil.ATTRIBUTE_ADDITIONAL_DAMAGE_LORE_SURFIX))) {
+            if (strippedLine.contains(ChatColor.stripColor(AttributeLoreUtil.ATTRIBUTE_ADDITIONAL_DAMAGE_LORE_SURFIX))) {
                 removedAnyLine = true;
                 continue;
             }
-            if (strippedLine.contains(ChatColor.stripColor(StarforceAttributeLoreUtil.ATTRIBUTE_ADDITIONAL_DAMAGE_PERCENTAGE_LORE_SURFIX))) {
+            if (strippedLine.contains(ChatColor.stripColor(AttributeLoreUtil.ATTRIBUTE_ADDITIONAL_DAMAGE_PERCENTAGE_LORE_SURFIX))) {
                 removedAnyLine = true;
                 continue;
             }
-            if (strippedLine.contains(ChatColor.stripColor(StarforceAttributeLoreUtil.ATTRIBUTE_REDUCIBLE_DAMAGE_LORE_SURFIX))) {
+            if (strippedLine.contains(ChatColor.stripColor(AttributeLoreUtil.ATTRIBUTE_REDUCIBLE_DAMAGE_LORE_SURFIX))) {
                 removedAnyLine = true;
                 continue;
             }
-            if (strippedLine.contains(ChatColor.stripColor(StarforceAttributeLoreUtil.ATTRIBUTE_REDUCIBLE_DAMAGE_PERCENTAGE_LORE_SURFIX))) {
+            if (strippedLine.contains(ChatColor.stripColor(AttributeLoreUtil.ATTRIBUTE_REDUCIBLE_DAMAGE_PERCENTAGE_LORE_SURFIX))) {
                 removedAnyLine = true;
                 continue;
             }

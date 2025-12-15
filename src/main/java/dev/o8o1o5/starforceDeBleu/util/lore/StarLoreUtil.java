@@ -1,5 +1,6 @@
-package dev.o8o1o5.starforceDeBleu.util;
+package dev.o8o1o5.starforceDeBleu.util.lore;
 
+import dev.o8o1o5.starforceDeBleu.util.DataUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -7,7 +8,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.List;
 import java.util.ArrayList;
 
-public class StarforceStarLoreUtil {
+public class StarLoreUtil {
     private static final String STAR_LORE_PREFIX_TEXT = "스타포스";
     public static final String STAR_DISPLAY_LORE_PREFIX = ChatColor.GRAY + STAR_LORE_PREFIX_TEXT + " ";
 
@@ -35,7 +36,7 @@ public class StarforceStarLoreUtil {
             lore = new ArrayList<>();
         }
 
-        if (stars > 0 && stars <= StarforceDataUtil.MAX_STARFORCE_LEVEL) {
+        if (stars > 0 && stars <= DataUtil.MAX_STARFORCE_LEVEL) {
             StringBuilder starLoreBuilder = new StringBuilder();
             starLoreBuilder.append(ChatColor.GRAY).append(STAR_LORE_PREFIX_TEXT).append(" ");
 

@@ -1,10 +1,11 @@
 package dev.o8o1o5.starforceDeBleu.command;
 
 import dev.o8o1o5.starforceDeBleu.StarforceDeBleu;
-import dev.o8o1o5.starforceDeBleu.util.ItemLoreDisplayUtil;
-import dev.o8o1o5.starforceDeBleu.util.StarforceStarLoreUtil;
-import dev.o8o1o5.starforceDeBleu.util.StarforceDataUtil;
+import dev.o8o1o5.starforceDeBleu.modifier.AttributeApplier;
+import dev.o8o1o5.starforceDeBleu.util.DataUtil;
+import dev.o8o1o5.starforceDeBleu.util.lore.ItemLoreDisplayUtil;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,7 +37,7 @@ public class StarforceCommand implements CommandExecutor, TabCompleter {
         Player player = (Player) sender;
         ItemStack handItem = player.getInventory().getItemInMainHand();
 
-        if (handItem == null || handItem.getType().isAir()) {
+        if (handItem == null || handItem.getType().equals(Material.AIR)) {
             player.sendMessage(ChatColor.RED + "강화할 아이템을 손에 들어야 합니다.");
             return true;
         }
@@ -63,19 +64,19 @@ public class StarforceCommand implements CommandExecutor, TabCompleter {
                     return true;
                 }
                 boolean starforcable = Boolean.parseBoolean(args[1]);
-                StarforceDataUtil.setStarforcable(handItem, starforcable);
+                DataUtil.setStarforcable(handItem, starforcable);
                 player.sendMessage(ChatColor.GREEN + "아이템의 starforcable 플래그가 " + starforcable + "(으)로 설정되었습니다.");
                 return true;
 
             case "isstarforcable":
-                boolean currentStarforcable = StarforceDataUtil.isStarforcable(handItem);
+                boolean currentStarforcable = DataUtil.isStarforcable(handItem);
                 player.sendMessage(ChatColor.AQUA + "현재 아이템의 starforcable 플래그는 " + currentStarforcable + " 상태입니다.");
                 return true;
         }
 
-        if (!StarforceDataUtil.isStarforcable(handItem)) {
-            if (StarforceDataUtil.hasRelevantAttributeModifiers(handItem)) {
-                StarforceDataUtil.setStarforcable(handItem, true);
+        if (!DataUtil.isStarforcable(handItem)) {
+            if (DataUtil.hasRelevantAttributeModifiers(handItem)) {
+                DataUtil.setStarforcable(handItem, true);
                 player.sendMessage(ChatColor.GREEN + "이 아이템은 강화 대상이므로, starforcable 플래그가 자동으로 부여되었습니다.");
             } else {
                 player.sendMessage(ChatColor.RED + "이 아이템은 스타포스 강화 대상이 아닙니다. (무기, 방어구, 도구가 아님)");
@@ -92,18 +93,20 @@ public class StarforceCommand implements CommandExecutor, TabCompleter {
                 try {
                     int stars = Integer.parseInt(args[1]);
                     if (stars > 25 || stars < 0) {
-                        player.sendMessage(ChatColor.RED + "스타포스 레벨은 0부터 " + StarforceDataUtil.MAX_STARFORCE_LEVEL + "까지만 설정할 수 있습니다.");
+                        player.sendMessage(ChatColor.RED + "스타포스 레벨은 0부터 " + DataUtil.MAX_STARFORCE_LEVEL + "까지만 설정할 수 있습니다.");
                         return true;
                     }
-                    StarforceDataUtil.setStars(handItem, stars);
+                    DataUtil.setStars(handItem, stars);
                     player.sendMessage(ChatColor.GREEN + handItem.getType().name() + " 아이템의 스타포스 레벨이 " + stars + "(으)로 설정되었습니다.");
+                    AttributeApplier.applyModifiers(handItem, stars);
+                    ItemLoreDisplayUtil.updateItemLore(handItem, stars);
                 } catch (NumberFormatException e) {
                     player.sendMessage(ChatColor.RED + "유효한 숫자를 입력하세요.");
                 }
                 break;
 
             case "getstar":
-                int stars = StarforceDataUtil.getStars(handItem);
+                int stars = DataUtil.getStars(handItem);
                 player.sendMessage(ChatColor.AQUA + "현재 아이템의 스타포스 레벨은 " + stars + "입니다.");
                 break;
 
@@ -113,12 +116,12 @@ public class StarforceCommand implements CommandExecutor, TabCompleter {
                     return true;
                 }
                 boolean processed = Boolean.parseBoolean(args[1]);
-                StarforceDataUtil.setProcessed(handItem, processed);
+                DataUtil.setProcessed(handItem, processed);
                 player.sendMessage(ChatColor.GREEN + "스타포스 처리 플래그가 " + processed + "(으)로 설정되었습니다.");
                 break;
 
             case "isprocessed":
-                boolean isProcessed = StarforceDataUtil.isProcessed(handItem);
+                boolean isProcessed = DataUtil.isProcessed(handItem);
                 player.sendMessage(ChatColor.AQUA + "현재 스타포스 처리 플래그는 " + isProcessed + " 상태입니다.");
                 break;
 

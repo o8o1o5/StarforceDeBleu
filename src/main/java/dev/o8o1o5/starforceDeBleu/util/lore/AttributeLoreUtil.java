@@ -1,5 +1,6 @@
-package dev.o8o1o5.starforceDeBleu.util;
+package dev.o8o1o5.starforceDeBleu.util.lore;
 
+import dev.o8o1o5.starforceDeBleu.util.DataUtil;
 import dev.o8o1o5.starforceDeBleu.util.calculator.ArmorCalculator;
 import dev.o8o1o5.starforceDeBleu.util.calculator.SwordCalculator;
 import org.bukkit.ChatColor;
@@ -9,7 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
-public class StarforceAttributeLoreUtil {
+public class AttributeLoreUtil {
     public static final String ATTRIBUTE_ADDITIONAL_DAMAGE_LORE_SURFIX = ChatColor.GOLD + "추가 피해";
     public static final String ATTRIBUTE_ADDITIONAL_DAMAGE_PERCENTAGE_LORE_SURFIX = ChatColor.GOLD + "추가 피해 배율";
     public static final String ATTRIBUTE_REDUCIBLE_DAMAGE_LORE_SURFIX = ChatColor.GOLD + "받는 피해 감소";
@@ -22,7 +23,7 @@ public class StarforceAttributeLoreUtil {
         List<String> lore = meta.getLore();
         if (lore == null) return;
 
-        if (stars <= 0 || stars > StarforceDataUtil.MAX_STARFORCE_LEVEL) {
+        if (stars <= 0 || stars > DataUtil.MAX_STARFORCE_LEVEL) {
             meta.setLore(lore);
             return;
         }

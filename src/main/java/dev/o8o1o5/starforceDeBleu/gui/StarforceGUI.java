@@ -2,10 +2,11 @@ package dev.o8o1o5.starforceDeBleu.gui;
 
 import dev.o8o1o5.starforceDeBleu.StarforceDeBleu;
 import dev.o8o1o5.starforceDeBleu.data.StarforceLevel;
-import dev.o8o1o5.starforceDeBleu.manager.StarforceManager;
+import dev.o8o1o5.starforceDeBleu.manager.LogicManager;
+import dev.o8o1o5.starforceDeBleu.modifier.AttributeApplier;
 import dev.o8o1o5.starforceDeBleu.util.ItemBuilder;
-import dev.o8o1o5.starforceDeBleu.util.ItemLoreDisplayUtil;
-import dev.o8o1o5.starforceDeBleu.util.StarforceDataUtil;
+import dev.o8o1o5.starforceDeBleu.util.lore.ItemLoreDisplayUtil;
+import dev.o8o1o5.starforceDeBleu.util.DataUtil;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -16,7 +17,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -70,15 +70,15 @@ public class StarforceGUI implements InventoryHolder {
     }
 
     public void updatePreviewAndInfo(ItemStack itemToEnhance) {
-        if (itemToEnhance == null || itemToEnhance.getType().isAir()) {
+        if (itemToEnhance == null || itemToEnhance.getType().equals(Material.AIR)) {
             inventory.setItem(PREVIEW_SLOT, null);
             updateChanceInfo(0);
             updateCostInfo(0);
             inventory.setItem(ENHANCE_BUTTON_SLOT, enabledEnhanceButton);
         } else {
-            int currentStars = StarforceDataUtil.getStars(itemToEnhance);
+            int currentStars = DataUtil.getStars(itemToEnhance);
 
-            if (currentStars >= StarforceDataUtil.MAX_STARFORCE_LEVEL) {
+            if (currentStars >= DataUtil.MAX_STARFORCE_LEVEL) {
                 inventory.setItem(PREVIEW_SLOT, null);
 
                 ItemStack maxLevelInfo = new ItemBuilder(Material.BARRIER)
@@ -92,13 +92,15 @@ public class StarforceGUI implements InventoryHolder {
 
                 inventory.setItem(ENHANCE_BUTTON_SLOT, disabledEnhanceButton);
             } else {
+                int nextStars = currentStars + 1;
                 ItemStack previewItem = itemToEnhance.clone();
-                StarforceDataUtil.setStars(previewItem, currentStars + 1); // 먼저 다음 스타포스 레벨 설정 (NBT 데이터)
+                DataUtil.setStars(previewItem, nextStars); // 먼저 다음 스타포스 레벨 설정 (NBT 데이터)
 
                 // --- 핵심 수정 부분: ItemLoreDisplayUtil을 호출하여 아이템 로어를 업데이트합니다. ---
                 // ItemLoreDisplayUtil 내부에서 ItemMeta를 가져와 로어를 수정하고 다시 설정하므로,
                 // 여기서는 별도의 ItemMeta 조작이 필요 없습니다.
-                ItemLoreDisplayUtil.updateItemLore(previewItem, currentStars + 1);
+                AttributeApplier.applyModifiers(previewItem, nextStars);
+                ItemLoreDisplayUtil.updateItemLore(previewItem, nextStars);
 
                 // 여기에 미리보기 전용 로어를 추가합니다.
                 // ItemLoreDisplayUtil이 설정한 로어 위에 추가됩니다.
@@ -135,15 +137,23 @@ public class StarforceGUI implements InventoryHolder {
         inventory.setItem(CHANCE_INFO_SLOT, chanceInfo);
     }
 
-    private long calculateCost(int stars) {
-        return (long) (100 * Math.pow(stars + 1, 2));
-    }
     private void updateCostInfo(int currentStars) {
-        long cost = calculateCost(currentStars);
+        long cost = LogicManager.calculateCost(currentStars);
+
+        List<String> lore = new ArrayList<>();
+
+        if (economy == null) {
+            lore.add(ChatColor.YELLOW + "Vault 연동 실패: 비용 확인 불가");
+            lore.add(ChatColor.GRAY + "필요 비용: " + cost + " (추정)");
+        } else {
+            lore.add(economy.format(cost));
+        }
+
         ItemStack costInfo = new ItemBuilder(Material.GOLD_INGOT)
                 .setName("강화 비용")
-                .setLore(Arrays.asList(economy.format(StarforceManager.calculateCost(currentStars))))
+                .setLore(lore) // 수정된 lore 리스트 사용
                 .build();
+
         inventory.setItem(COST_INFO_SLOT, costInfo);
     }
 

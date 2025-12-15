@@ -2,7 +2,7 @@ package dev.o8o1o5.starforceDeBleu.data;
 
 public enum StarforceLevel {
     // 별 개수 0부터 순서대로 정의합니다.
-    // 각 상수의 인자 순서: 성공률, 실패율, 파괴율 (모두 합쳐 100이 되어야 함)
+    // 각 상수의 인자 순서: 성공, 실패, 파괴 (모두 합쳐 100이 되어야 함)
     LEVEL_0(95, 5, 0),
     LEVEL_1(90, 10, 0),
     LEVEL_2(85, 15, 0),
@@ -15,20 +15,20 @@ public enum StarforceLevel {
     LEVEL_9(55, 45, 0),
     LEVEL_10(50, 50, 0),
     LEVEL_11(45, 55, 0),
-    LEVEL_12(40, 60, 0),
-    LEVEL_13(35, 65, 0),
-    LEVEL_14(30, 70, 0),
-    LEVEL_15(30, 68, 2),
-    LEVEL_16(30, 68, 2),
-    LEVEL_17(15, 78, 7),
-    LEVEL_18(15, 78, 7),
-    LEVEL_19(15, 77, 9),
-    LEVEL_20(30, 60, 11),
-    LEVEL_21(15, 73, 13),
+    LEVEL_12(40, 58, 2),
+    LEVEL_13(35, 63, 2),
+    LEVEL_14(30, 68, 2),
+    LEVEL_15(30, 66, 4),
+    LEVEL_16(30, 63, 7),
+    LEVEL_17(15, 76, 9),
+    LEVEL_18(15, 74, 11),
+    LEVEL_19(15, 72, 13),
+    LEVEL_20(15, 70, 15),
+    LEVEL_21(15, 69, 16),
     LEVEL_22(15, 68, 17),
     LEVEL_23(10, 72, 18),
-    LEVEL_24(10, 72, 18),
-    LEVEL_25(10, 72, 18)
+    LEVEL_24(10, 71, 19),
+    LEVEL_25(10, 70, 20)
     ;
 
     // private final Material displayMaterial; // 이 필드를 제거합니다.

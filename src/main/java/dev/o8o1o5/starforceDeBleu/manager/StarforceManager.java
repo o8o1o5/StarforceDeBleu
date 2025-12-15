@@ -1,14 +1,12 @@
 package dev.o8o1o5.starforceDeBleu.manager;
 
-import dev.o8o1o5.starforceDeBleu.StarforceDeBleu;
 import dev.o8o1o5.starforceDeBleu.data.StarforceLevel;
 import dev.o8o1o5.starforceDeBleu.util.StarforceDataUtil;
-import net.milkbowl.vault.economy.Economy;
-import net.milkbowl.vault.economy.EconomyResponse;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -38,27 +36,19 @@ public class StarforceManager {
         int currentStars = StarforceDataUtil.getStars(item);
         StarforceLevel currentLevel = StarforceLevel.getLevel(currentStars);
 
-        long cost = calculateCost(currentStars);
-
-        Economy economy = StarforceDeBleu.getEconomy();
+        long cost = calculateCost(currentStars); // 필요한 에메랄드 개수
 
         ItemStack resultItem = item.clone();
 
-        if (economy == null) {
-            player.sendMessage(ChatColor.YELLOW + "경제 플러그인이 연동되지 않아 재화가 차감되지 않습니다.");
-        }
+        // 에메랄드 확인 및 차감 로직 시작
+        PlayerInventory playerInventory = player.getInventory();
 
-        if (!economy.has(player, cost)) {
-            player.sendMessage(ChatColor.RED + "강화에 필요한 재화가 부족합니다.");
+        if (!tryRemoveEmeralds(playerInventory, cost)) {
+            player.sendMessage(ChatColor.RED + "강화에 필요한 에메랄드가 부족합니다! (필요: " + cost + "개)");
             return resultItem;
         }
-
-        EconomyResponse response = economy.withdrawPlayer(player, cost);
-
-        if (!response.transactionSuccess()) {
-            player.sendMessage(ChatColor.RED + "내부 오류로 인해 재화 차감에 실패했습니다: " + response.errorMessage);
-            return resultItem;
-        }
+        player.sendMessage(ChatColor.YELLOW + "인벤토리에서 에메랄드 " + cost + "개가 차감되었습니다.");
+        // 끝
 
         int roll = random.nextInt(100) + 1;
 
@@ -74,12 +64,50 @@ public class StarforceManager {
                 player.sendMessage(ChatColor.RED + "강화 실패! 아이템의 스타포스가 " + StarforceDataUtil.getStars(resultItem) + "성으로 하락했습니다.");
             }
         } else {
-            player.sendMessage(ChatColor.DARK_RED + "강화 파괴! 아이템이 소멸했습니다.");
-            resultItem = null;
+            player.sendMessage(ChatColor.DARK_RED + "강화 파괴! 아이템의 스타포스가 초기화되었습니다.");
+            StarforceDataUtil.setStars(resultItem, 0);
         }
 
         return resultItem;
+    }
 
+    private boolean tryRemoveEmeralds(PlayerInventory inventory, long amountToRemove) {
+        if (amountToRemove <= 0){
+            return true;
+        }
+
+        long totalEmeralds = 0;
+        for (ItemStack item : inventory.getContents()) {
+            if (item != null && item.getType() == Material.EMERALD) {
+                totalEmeralds += item.getAmount();
+            }
+        }
+
+        if (totalEmeralds < amountToRemove) {
+            return true;
+        }
+
+        ItemStack[] contents = inventory.getContents();
+        long remainingToRemove = amountToRemove;
+
+        for (int i = 0; i < contents.length; i++) {
+            ItemStack item = contents[i];
+
+            if (item != null && item.getType() == Material.EMERALD) {
+                int currentStackAmount = item.getAmount();
+
+                if (currentStackAmount >= remainingToRemove) {
+                    item.setAmount((int) (currentStackAmount - remainingToRemove));
+                    remainingToRemove = 0;
+                    break;
+                } else {
+                    remainingToRemove -= currentStackAmount;
+                    inventory.setItem(i, null);
+                }
+            }
+        }
+
+        return remainingToRemove == 0;
     }
 
     public static long calculateCost(int stars) {
@@ -88,8 +116,13 @@ public class StarforceManager {
         // 새로운 수식: 25 * (S + 1)^4
         double costDouble = 25.0 * Math.pow(S + 1, 4.0);
 
-        // 천원 단위로 반올림
-        long cost = Math.round(costDouble / 1000.0) * 1000;
+        // 천원 단위로 반올림 대신, 에메랄드 개수로 사용되므로 정수로 변환
+        long cost = (long) Math.ceil(costDouble / 20000.0); // 1000원당 1 에메랄드로 가정, 올림
+
+        // 최소 1 에메랄드
+        if (cost < 1) {
+            cost = 1;
+        }
 
         return cost;
     }

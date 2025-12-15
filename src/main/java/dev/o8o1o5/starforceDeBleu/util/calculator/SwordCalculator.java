@@ -1,5 +1,6 @@
 package dev.o8o1o5.starforceDeBleu.util.calculator;
 
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.inventory.ItemStack;
 
 public class SwordCalculator {
@@ -21,13 +22,10 @@ public class SwordCalculator {
     }
 
     public static double getAdditionalDamagePercentage(ItemStack item, int stars) {
-        double additionalDamagePercentage = 1.0;
-        int currentStars = stars;
+        double percentageIncrease = SwordCalculator.getAdditionalDamagePercentage(item, stars);
 
-        while (currentStars >= 5) {
-            additionalDamagePercentage += 0.016;
-            currentStars -= 5;
-        }
-        return additionalDamagePercentage;
+        AttributeModifier damagePercentageModifier = new AttributeModifier(
+                StarforceConstans.S
+        )
     }
 }

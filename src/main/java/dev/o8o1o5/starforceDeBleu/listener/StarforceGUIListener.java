@@ -30,14 +30,20 @@ public class StarforceGUIListener implements Listener {
             return;
         }
 
-        Player player = (Player) event.getWhoClicked();
         StarforceGUI gui = (StarforceGUI) event.getInventory().getHolder();
 
+        if (gui.isProcessing()) {
+            event.setCancelled(true);
+            return;
+        }
+
+        Player player = (Player) event.getWhoClicked();
+        int clickedSlot = event.getRawSlot();
+
         // 1. GUI 자체의 슬롯 (상단 인벤토리 영역) 클릭 처리
-        if (event.getRawSlot() < gui.getInventory().getSize()) {
+        if (clickedSlot < gui.getInventory().getSize()) {
             event.setCancelled(true);
 
-            int clickedSlot = event.getRawSlot();
             ItemStack clickedItem = event.getCurrentItem();
             ItemStack cursorItem = event.getCursor();
 

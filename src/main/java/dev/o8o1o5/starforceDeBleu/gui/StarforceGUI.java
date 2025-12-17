@@ -30,6 +30,8 @@ public class StarforceGUI implements InventoryHolder {
     public static final int CHANCE_INFO_SLOT = 19;
     public static final int COST_INFO_SLOT = 23;
 
+    private boolean isProcessing = false;
+
     private final ItemStack enabledEnhanceButton;
     private final ItemStack disabledEnhanceButton;
 
@@ -67,6 +69,10 @@ public class StarforceGUI implements InventoryHolder {
 
         updateChanceInfo(0);
         updateCostInfo(0);
+    }
+
+    public boolean isProcessing() {
+        return isProcessing;
     }
 
     public void updatePreviewAndInfo(ItemStack itemToEnhance) {

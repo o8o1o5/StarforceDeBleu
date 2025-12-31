@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43bec973-8197-4534-9646-38ba0b7af8fc" name="Changes" comment="ddd">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/item/StarforceItemManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/gui/StarforceGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/gui/StarforceGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/listener/StarforceGUIListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/listener/StarforceGUIListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT-shaded.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT-shaded.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/StarforceDeBleu-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-StarforceDeBleu-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-StarforceDeBleu-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/modifier/AttributeApplier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/o8o1o5/starforceDeBleu/modifier/AttributeApplier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

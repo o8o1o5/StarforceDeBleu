@@ -1,6 +1,7 @@
 package dev.o8o1o5.starforceDeBleu;
 
 import dev.o8o1o5.starforceDeBleu.command.StarforceCommand;
+import dev.o8o1o5.starforceDeBleu.item.StarforceItemManager;
 import dev.o8o1o5.starforceDeBleu.listener.AnvilInteractListener;
 import dev.o8o1o5.starforceDeBleu.listener.StarforceGUIListener;
 import dev.o8o1o5.starforceDeBleu.manager.LogicManager;
@@ -15,11 +16,14 @@ public final class StarforceDeBleu extends JavaPlugin {
     private static Economy economy = null;
     private LogicManager logicManager;
 
+    private StarforceItemManager itemManager;
+
     @Override
     public void onEnable() {
         DataUtil.initialize(this);
         ModifierKey.initialize(this);
         this.logicManager = new LogicManager();
+        this.itemManager = new StarforceItemManager();
 
         Bukkit.getScheduler().runTaskLater(this, () -> {
             if (!setupEconomy()) {
@@ -30,16 +34,19 @@ public final class StarforceDeBleu extends JavaPlugin {
             }
         }, 1L); // 1 틱 지연
 
+        // 아이템 등록
+        itemManager.registerItems();
+
         StarforceCommand starforceCommandHandler = new StarforceCommand(this);
         getCommand("starforce").setExecutor(starforceCommandHandler);
         getCommand("starforce").setTabCompleter(starforceCommandHandler);
 
+        getServer().getPluginManager().registerEvents(new AnvilInteractListener(), this);
+        getServer().getPluginManager().registerEvents(new StarforceGUIListener(logicManager, this), this);
+
         // 이는 AttributeModifier 를 활용하는 방법으로 통합되었습니다.
         // getServer().getPluginManager().registerEvents(new SwordListener(), this);
         // getServer().getPluginManager().registerEvents(new ArmorListener(), this);
-
-        getServer().getPluginManager().registerEvents(new AnvilInteractListener(), this);
-        getServer().getPluginManager().registerEvents(new StarforceGUIListener(logicManager, this), this);
 
         Bukkit.getLogger().info("스타포스 시스템이 활성화 되었습니다.");
     }
